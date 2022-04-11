@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app:
+    image: jupyter/minimal-notebook
+    container_name: jupyter_notebook
+    ports:
+      - 8888:8888
+    volumes:
+      - ./work:/home/jovyan/work
+      - ./requirements.txt:/requirements.txt
+    command: bash -c "pip install -r /requirements.txt && jupyter notebook"
